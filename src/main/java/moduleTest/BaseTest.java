@@ -1,5 +1,5 @@
 package moduleTest;
 
-public class base_test {
+public class BaseTest {
     
 }

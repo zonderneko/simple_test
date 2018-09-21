@@ -5,37 +5,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-public class Login {
+public class LoginPage {
     private static WebDriver driver = null;
 
 
-    public static void goToPage() {
-        
-        driver.get("http://store.demoqa.com");
+    public static void goToPage(WebDriver driver) {
+
+        driver.get("http://store.demoqa.com/products-page/your-account/");
 
     }
-    /*WebElement login = driver.findElement(By.id("log"));
-    public void setLogin(WebElement login) {
-        this.login = login;
-        login.sendKeys("testlogin");
+    public static void returnToMain(WebDriver driver) {
+
+        driver.get("http://store.demoqa.com/");
+
     }
-
-    WebElement password = driver.findElement(By.id("pwd"));
-
-    public void setPassword(WebElement password) {
-        this.password = password;
-        password.sendKeys("testpwd");
-    }
-
-    WebElement loginBtn = driver.findElement(By.id("login"));
-
-    public void setLoginBtn(WebElement loginBtn) {
-        this.loginBtn = loginBtn;
-        loginBtn.click();
-    }*/
-    public static WebElement setLogin() {
-
+    public static void setLogin(WebDriver driver) {
         WebElement login = driver.findElement(By.id("log"));
-        return login;
+        login.sendKeys("zonder");
     }
+
+    public static void setPassword(WebDriver driver) {
+        WebElement password = driver.findElement(By.id("pwd"));
+        password.sendKeys("test");
+    }
+
+    public static void setLoginBtn(WebDriver driver) {
+        WebElement loginBtn = driver.findElement(By.id("login"));
+        loginBtn.click();
+    }
+    public static void setChkBox(WebDriver driver) {
+        WebElement chkBox = driver.findElement(By.id("rememberme"));
+        chkBox.click();
+    }
+   /* public static void loginchk (WebDriver driver) {
+        WebElement name = driver.findElement(By.className("ab-item"));
+        System.out.println(name.getAttribute("ab-item"));
+    }*/
 }

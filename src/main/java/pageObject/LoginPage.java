@@ -1,12 +1,12 @@
 package pageObject;
 
+import Utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
 public class LoginPage {
-    private static WebDriver driver = null;
 
 
     public static void goToPage(WebDriver driver) {
@@ -20,13 +20,13 @@ public class LoginPage {
 
     }
     public static void setLogin(WebDriver driver) {
-        WebElement login = driver.findElement(By.id("log"));
-        login.sendKeys("zonder");
+        WebElement loginField = driver.findElement(By.id("log"));
+        loginField.sendKeys(Constants.login);
     }
 
     public static void setPassword(WebDriver driver) {
-        WebElement password = driver.findElement(By.id("pwd"));
-        password.sendKeys("test");
+        WebElement passwordField = driver.findElement(By.id("pwd"));
+        passwordField.sendKeys(Constants.password);
     }
 
     public static void setLoginBtn(WebDriver driver) {

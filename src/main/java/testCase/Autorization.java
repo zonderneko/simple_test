@@ -9,21 +9,13 @@ public class Autorization {
 
 
     public void testLogin(WebDriver driver) {
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         LoginPage.goToPage(driver);
         LoginPage.setLogin(driver);
         LoginPage.setPassword(driver);
         LoginPage.setChkBox(driver);
         LoginPage.setLoginBtn(driver);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-/*        try {
-
-            Thread.sleep(5000);
-
-        } catch (InterruptedException e) {
-            System.err.println(e.getMessage());
-        }
-        LoginPage.returnToMain(driver);*/
+        LoginPage.loginchk(driver);
 
     }
 

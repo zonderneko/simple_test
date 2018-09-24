@@ -4,6 +4,7 @@ import Utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 
 public class LoginPage {
@@ -37,8 +38,8 @@ public class LoginPage {
         WebElement chkBox = driver.findElement(By.id("rememberme"));
         chkBox.click();
     }
-   /* public static void loginchk (WebDriver driver) {
-        WebElement name = driver.findElement(By.className("ab-item"));
-        System.out.println(name.getAttribute("ab-item"));
-    }*/
+    public static void loginchk (WebDriver driver) {
+        WebElement name = driver.findElement(By.xpath("/html/body/div[3]/div/ul[2]/li[2]/a/span"));
+        Assert.assertEquals(name.getText(), Constants.login);
+    }
 }

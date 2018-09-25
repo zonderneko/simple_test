@@ -14,15 +14,17 @@ public class DropdownMenuURLs {
 
         Dropdown.mainPage(driver);
         Dropdown dropdown = new Dropdown(driver);
-        for (String link : Constants.links) {
-            Dropdown.moveTo(driver);
-            WebElement element = dropdown.getElementByLinkPart(link);
-            Actions action = new Actions(driver);
-            action.moveToElement(element).build().perform();
-            String s = element.getText();
-            element.click();
-            Assert.assertEquals(s, driver.findElement(By.xpath(Constants.headers)).getText());
-        }
+        dropdown.assertChilds();
+//        Dropdown dropdown = new Dropdown(driver);
+//        for (String link : Constants.links) {
+//            Dropdown.moveTo(driver);
+//            WebElement element = dropdown.getElementByLinkPart(link);
+//            Actions action = new Actions(driver);
+//            action.moveToElement(element).build().perform();
+//            String s = element.getText();
+//            element.click();
+//            Assert.assertEquals(s, driver.findElement(By.xpath(Constants.headers)).getText());
+//        }
 
     }
 }

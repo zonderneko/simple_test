@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,9 +32,25 @@ public class Dropdown {
         action.moveToElement(menu).build().perform();
     }
 
-    @Nullable
-    public WebElement getElementByLinkPart(@Nonnull String linkPart) {
 
+    public WebElement getElementByLinkPart(String linkPart) {
         return driver.findElement(By.partialLinkText(linkPart));
     }
+
+    public void assertChilds() {
+        for (String link : Constants.links) {
+            Dropdown.moveTo(driver);
+            WebElement child = this.getElementByLinkPart(link);
+            moveToChild(child);
+            String childText = child.getText();
+            child.click();
+            Assert.assertEquals(childText, driver.findElement(By.xpath(Constants.headers)).getText());
+        }
+    }
+
+    private void moveToChild(WebElement child) {
+        Actions action = new Actions(driver);
+        action.moveToElement(child).build().perform();
+    }
+
 }

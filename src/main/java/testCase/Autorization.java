@@ -9,6 +9,7 @@ public class Autorization {
 
 
     public void testLogin(WebDriver driver) {
+
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         LoginPage.goToPage(driver);
         LoginPage.setLogin(driver);
@@ -16,7 +17,6 @@ public class Autorization {
         LoginPage.setChkBox(driver);
         LoginPage.setLoginBtn(driver);
         LoginPage.loginchk(driver);
-
     }
 
 

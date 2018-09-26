@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 
 public class Dropdown {
@@ -25,7 +23,7 @@ public class Dropdown {
         driver.get(Constants.main);
     }
 
-    public static void moveTo(WebDriver driver) {
+    private static void moveTo(WebDriver driver) {
 
         Actions action = new Actions(driver);
         WebElement menu = driver.findElement(By.xpath("/html/body/div[2]/div/div/header/nav/ul/li[2]/a"));
@@ -33,11 +31,13 @@ public class Dropdown {
     }
 
 
-    public WebElement getElementByLinkPart(String linkPart) {
+    private WebElement getElementByLinkPart(String linkPart) {
+
         return driver.findElement(By.partialLinkText(linkPart));
     }
 
     public void assertChilds() {
+
         for (String link : Constants.links) {
             Dropdown.moveTo(driver);
             WebElement child = this.getElementByLinkPart(link);
@@ -49,6 +49,7 @@ public class Dropdown {
     }
 
     private void moveToChild(WebElement child) {
+
         Actions action = new Actions(driver);
         action.moveToElement(child).build().perform();
     }
